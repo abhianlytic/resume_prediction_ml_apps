@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <body>
+  <div class="container-fluid px-0 mb-3" >
+    <img src="https://source.unsplash.com/1000x200/?upload,resume,cv" class="d-block w-100 mx-0" alt="...">
+  </div>
+  <h3>Select Resume in PDF format for Prediction</h3>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="file" name="document">
+    <button type="submit">Upload Resume</button>
+  </form>
+  {% if url %}
+    <h4 style="color:green;">Document Uploaded Successfully</h4>
+    <button type="button"class="btn btn-outline-warning"><a href="/home">Home</a></button>
+    <button type="button" class="btn btn-outline-warning"><a href="/predict">Get Predictions</a></button>
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+
+  {% endif %}
+{% endblock %}

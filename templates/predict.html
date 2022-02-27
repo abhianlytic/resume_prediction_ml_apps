@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Predict{% endblock title %}
+
+{% block content %}
+<colgroup>
+    <col span="2" style="background-color:red">
+    <col style="background-color:yellow">
+</colgroup>
+<div class="container-fluid px-0 mb-3" >
+    <img src="https://source.unsplash.com/800x200/?phone,contact" class="d-block w-100 mx-0" alt="...">
+</div>
+
+ {%  if scoreval  %}
+ <h2>Prediction Successful</h2>
+ <h4 style="color:green;">The prediction percentage matching score is {{scoreval}}%</h4>
+ <h5>The total time taken to predict is around {{total_time}}</h5>
+
+ </h3>
+
+    <button type="button" class="btn btn-outline-warning"><a href="/home">Home</a></button>
+    <button type="button" class="btn btn-outline-warning"><a href="/visualize">Visualize</a></button>
+ {% else%}
+ <input type="submit" value="Submit" ></div>
+ {% endif %}
+
+{% endblock content %}
+

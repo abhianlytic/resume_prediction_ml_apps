@@ -1,0 +1,27 @@
+<div style="padding:40px;margin:40px;border:1px solid #ccc">
+    <h1>Resume Matching Prediciton Application</h1>
+    <form method="post" enctype="multipart/form-data",action="">
+        <!input type="file" name="document">
+        <h4>Resume Matching Prediction Application</h4>
+
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit for Prediction</button>
+        {%  if prediction  %}
+        <h1>The mpg score is {{context}}</h1>
+        <h3>If the response is good. Do you weant to save it in DB?
+        </h3>
+        {% else%}
+        <input type="hidden" value="Submit1" ></div>
+        {% endif %}
+
+    </form><hr>
+    <ul>
+    {% for document in documents %}
+        <li>
+            <a href="{{ document.upload_file.url }}">{{ document.upload_file.name }}</a>
+            <small>({{ document.upload_file.size|filesizeformat }}) - {{document.upload_date}}</small>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

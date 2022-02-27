@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualize{% endblock title %}
+
+{% block content %}
+<div class="container-fluid px-0 mb-3" >
+    <img src="https://source.unsplash.com/1000x200/?phone,contact" class="d-block w-100 mx-0" alt="...">
+</div>
+ {%  if input_wordcloud  %}
+     <h2>Prediction Successful</h2>
+     <h4 style="color:green;">The prediction percentage matching score is {{scoreval}}%</h4>
+
+     <h6 style="color:green;">Similarity score between resume and job description is {{matching_word_length_percentage}}</h6>
+     <h6 style="color:green;">There are {{matching_word_length}} common words between resume and job description</h6>
+     <h7 style="color:blue;">Following are the common words {{matching_words}}</h7>
+     <h5 style="color:red;">Following are the wordcloud for resume(left) and Job Description(right)</h5>
+     <img src = "data:image/png;base64, {{ input_wordcloud|safe }}" alt="Query Resume Wordcloud" width="500" height="300">
+     <img src = "data:image/png;base64, {{ jd_wordcloud|safe }}" alt="JD Wordcloud" width="500" height="300">
+
+     <button type="button" class="btn btn-outline-warning"><a href="/home">Home</a></button>
+     <button type="button" class="btn btn-outline-warning"><a href="/upload">Predict Single CV</a></button>
+     <button type="button" class="btn btn-outline-warning"><a href="/multiple_uploads">Predict Multiple CV</a></button>
+ {% else%}
+     <input type="submit" value="Submit" ></div>
+ {% endif %}
+{% endblock content %}

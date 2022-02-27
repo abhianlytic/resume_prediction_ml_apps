@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Predict All{% endblock title %}
+
+{% block content %}
+<colgroup>
+    <col span="2" style="background-color:red">
+    <col style="background-color:yellow">
+</colgroup>
+<div class="container-fluid px-0 mb-3" >
+    <img src="https://source.unsplash.com/800x200/?phone,contact" class="d-block w-100 mx-0" alt="...">
+</div>
+
+ {%  if total_time  %}
+    <h2 style="color:green">Prediction Successful </h2>
+    <p>{{data|safe}}</p>
+    <p>The total time taken to predict is around {{total_time}}</p>
+
+    <button type="button" class="btn btn-outline-warning"><a href="/home">Home</a></button>
+    <button type="button" class="btn btn-outline-warning"><a href="/upload">Predict single CV</a></button>
+    <button type="button" class="btn btn-outline-warning"><a href="/multiple_uploads">Predict multiple CV</a></button>
+ {% else%}
+ <input type="submit" value="Submit" ></div>
+ {% endif %}
+
+
+
+{% endblock content %}
+
